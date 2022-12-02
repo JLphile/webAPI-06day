@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>元字符</title>
+  </head>
+  <body>
+    <script>
+      // 1.边界符 ^表示开头 $ 表示结尾
+      console.log(/^哈/.test('哈')) //true
+      console.log(/^哈/.test('哈哈')) //true
+      console.log(/^哈/.test('二哈')) //false
+      console.log(/^哈$/.test('哈')) //true
+      // 精确匹配
+      console.log(/^哈$/.test('哈哈')) //false
+
+      console.log(/^二哈$/.test('二哈很傻')) //false
+      console.log(/^二哈$/.test('二哈二哈')) //false
+      console.log(/^二哈$/.test('二哈')) //true
+    </script>
+  </body>
+</html>
