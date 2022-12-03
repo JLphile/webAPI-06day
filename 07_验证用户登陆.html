@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用户登陆验证</title>
+    <style>
+      .xtx-form-item {
+        position: relative;
+        margin: 30px auto;
+      }
+      span {
+        display: block;
+        position: absolute;
+        top: 20px;
+        margin: 5px 0;
+        width: 150px;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="xtx-form-item" data-prop="username">
+      <input type="text" name="username" placeholder="设置用户名称" />
+      <span class="msg"></span>
+    </div>
+    <div class="xtx-form-item" data-prop="phone">
+      <input type="text" name="phone" placeholder="设置手机号" />
+      <span class="msg"></span>
+    </div>
+    <script>
+      //验证用户名
+      const username = document.querySelector('[name=username]')
+
+      username.addEventListener('change', verifyName)
+      function verifyName() {
+        const span = username.nextElementSibling
+        const reg = /^[a-zA-Z0-9-_]{6,10}$/
+        if (!reg.test(username.value)) {
+          span.innerText = '请输入6-10位'
+          return false
+        }
+        span.innerHTML = ''
+        return true
+      }
+      // 验证手机号
+      const phone = document.querySelector('[name=phone]')
+
+      phone.addEventListener('change', verifyPhone)
+      function verifyPhone() {
+        const span = phone.nextElementSibling
+        const reg = /^1(3\d|4[5-9]|5[0-35-9]|6[567]|7[0-8]|8\d|9[0-35-9])\d{8}$/
+        if (!reg.test(phone.value)) {
+          span.innerText = '请输11位手机号'
+          return false
+        }
+        span.innerHTML = ''
+        return true
+      }
+    </script>
+  </body>
+</html>
